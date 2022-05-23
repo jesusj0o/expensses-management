@@ -11,5 +11,12 @@ const validatorCreateExpenses = [
     }
 ]
 
+const validatorGetItem = [
+    check('id').exists().notEmpty().isMongoId(), 
+    (req, res, next) => { 
+        return validateResult(req, res, next)
+    }
+]
 
-module.exports = {validatorCreateExpenses};
+
+module.exports = {validatorCreateExpenses, validatorGetItem};
